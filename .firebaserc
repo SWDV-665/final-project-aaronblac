@@ -1,0 +1,14 @@
+{
+  "targets": {
+    "fitness-app-auth-bb372": {
+      "hosting": {
+        "app": [
+          "fitness-app-auth-bb372"
+        ]
+      }
+    }
+  },
+  "projects": {
+    "default": "fitness-app-auth-bb372"
+  }
+}

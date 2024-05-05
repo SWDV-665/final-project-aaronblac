@@ -1,0 +1,29 @@
+
+<ion-content class="ion-padding" [fullscreen]="true">
+  <ion-button size="small" color="tertiary" (click)="backToWorkout()">Return to Workout</ion-button>
+ <ion-card class="margin-top">
+  <ion-card-content>
+    <ion-card-title>
+      Past Workouts
+    </ion-card-title>
+    <div *ngIf="isLoading">
+      <h4>Loading Past Workouts...</h4>
+    </div>
+    <div *ngIf="error">
+      Error: {{ error }}
+    </div>
+    <ion-list *ngIf="pastWorkouts.length > 0">
+      <ion-item *ngFor="let workout of pastWorkouts">
+        <ion-label>
+          <p>Date/Time: {{ workout.dateTime }}</p>
+          <p>Distance: {{ workout.distance }}</p>
+          <p>Type: {{ workout.workoutType }}</p>
+        </ion-label>
+      </ion-item>
+    </ion-list>
+    <div *ngIf="pastWorkouts.length === 0 && !isLoading">
+      No Past Workouts Found
+    </div>
+  </ion-card-content>
+ </ion-card>
+</ion-content>

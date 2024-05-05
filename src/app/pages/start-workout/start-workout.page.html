@@ -1,0 +1,41 @@
+
+<ion-content [fullscreen]="true" class="ion-padding">
+  <ion-button size="small" color="tertiary" (click)="logout()">Sign Out</ion-button>
+  <ion-item class="input margin-top">
+    <ion-select [disabled]="isTracking || paused" label="Type Of Workout" placeholder="Choose Workout Type" [(ngModel)]="selectedWorkoutType">
+      <ion-select-option value="run">Run</ion-select-option>
+      <ion-select-option value="hike">Hike</ion-select-option>
+      <ion-select-option value="walk">Walk</ion-select-option>
+    </ion-select>
+  </ion-item>
+  <ion-card class="margin-top">
+    <ion-card-content>
+      <ion-card-title>
+        Workout Data
+      </ion-card-title>
+      <ion-list>
+        <ion-item>
+          <ion-label>Distance:</ion-label>
+          <ion-label color="primary">{{ totalDistance |  number:'1.2-2' }} miles</ion-label>
+        </ion-item>
+      </ion-list>
+    </ion-card-content>
+  </ion-card>
+  <div class="flex items-center gap-2 margin-top">
+    <div class="half" *ngIf="isTracking && !paused">
+      <ion-button expand="block" color="secondary" (click)="toggleTracking()">Pause Workout</ion-button>
+    </div>
+    <div class="half" *ngIf="paused">
+      <ion-button expand="block" color="secondary" (click)="toggleTracking()">Resume Workout</ion-button>
+    </div>
+     <div class="half" *ngIf="!isTracking && !paused">
+      <ion-button expand="block" color="primary" (click)="toggleTracking()">Start Workout</ion-button>
+    </div>
+    <div class="half">
+      <ion-button expand="block" color="tertiary" [disabled]="!isTracking && !pauseStartTime" (click)="stopTracking()">Stop Workout</ion-button>
+    </div>
+  </div>
+  <div class="text-center margin-top-small">
+    <a href="javascript:void(0)" (click)="viewWorkouts()">View Past Workouts</a>
+  </div>
+</ion-content>

@@ -35,3 +35,37 @@
 /* @import "@ionic/angular/css/palettes/dark.always.css"; */
 /* @import "@ionic/angular/css/palettes/dark.class.css"; */
 @import "@ionic/angular/css/palettes/dark.system.css";
+
+.text-center{
+    text-align: center;
+}
+
+.flex{
+    display:flex;
+}
+
+.flex-column{
+    flex-direction:column;
+}
+
+.gap-1{
+    gap:1rem;
+}
+.gap-2{
+    gap:2rem;
+}
+.justify-center{
+    justify-content: center;
+}
+.justify-between{
+    justify-content: space-between;
+}
+.items-center{
+    align-items: center;
+}
+.input{
+    border-radius: 0.5rem;;
+}
+ion-card{
+    border-radius: 1rem;;
+}
