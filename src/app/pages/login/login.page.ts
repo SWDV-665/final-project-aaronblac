@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
-import { LoadingController } from '@ionic/angular';
+import { LoadingController, ToastController } from '@ionic/angular';
 import { AuthenticationService } from 'src/app/authentication.service';
 
 @Component({
@@ -13,7 +13,7 @@ export class LoginPage implements OnInit {
 
   loginForm: FormGroup
   showPassword = false;
-  constructor(public formBuilder: FormBuilder, public loadingCtrl: LoadingController, public authService: AuthenticationService, public router:Router) { }
+  constructor(public formBuilder: FormBuilder, public loadingCtrl: LoadingController, public authService: AuthenticationService, public router:Router, public toastController: ToastController) { }
 
   ngOnInit() {
     this.loginForm = this.formBuilder.group({
@@ -49,6 +49,15 @@ export class LoginPage implements OnInit {
      
     } else if(!this.loginForm.valid) {
       console.log('loginForm not valid') 
+      const toast = await this.toastController.create({
+        message: 'Invalid Login Credentials!',
+        duration: 2000
+      });
+      toast.present();
+      // Reload the page after toast duration
+      setTimeout(() => {
+        window.location.reload();
+      }, 2000); 
     }
   }
 
