@@ -37,7 +37,6 @@ export class StartWorkoutPage implements OnInit, OnDestroy {
     this.currentUser$.subscribe(user => {
       if (user){
         this.userID = user.uid;
-        console.log("userID: ", this.userID)
       }
     })
     
@@ -79,6 +78,7 @@ export class StartWorkoutPage implements OnInit, OnDestroy {
           this.totalDistance += distanceInMeters * 0.000621371;//convert to miles
           this.previousPosition = position;
         }
+        console.log("GeoLocation Plugin - lat/long: ",position.coords.latitude, position.coords.longitude)
       });
   }
   
