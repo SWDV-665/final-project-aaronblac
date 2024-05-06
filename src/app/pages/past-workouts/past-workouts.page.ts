@@ -26,7 +26,7 @@ export class PastWorkoutsPage implements OnInit {
    
       const routeParams = await this.route.paramMap.subscribe(async params =>{
         this.userID = params.get('userID')
-          if (this.userID) { // Check if userID has a value
+          if (this.userID) { // check if userID has a value
             await this.getPastWorkouts();
             console.log("pastWorkouts triggered")
           }else {
