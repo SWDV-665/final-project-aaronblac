@@ -1,7 +1,7 @@
 
 <ion-content [fullscreen]="true">
   <div class="text-center margin-top">
-    <ion-title>Welcome!</ion-title>
+    <h2>Welcome!</h2>
     <p>Create your account</p>
   </div>
 
@@ -43,7 +43,9 @@
         <div>
           <p>
             Already have an account?
-            <a [routerLink]="['/login']">Back to login</a>
+            <span class="link">
+              <a [routerLink]="['/login']">Back to login</a>
+            </span>
           </p>
         </div>
       </div>

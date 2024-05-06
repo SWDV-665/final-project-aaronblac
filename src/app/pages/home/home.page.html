@@ -3,7 +3,7 @@
   <ion-button size="small" color="tertiary" (click)="logout()">Sign Out</ion-button>
   
   <div class="text-center margin-top">
-    <ion-title class="title">Welcome, {{user?.displayName}}!</ion-title>
+    <h2 class="title">Welcome, {{user?.displayName}}!</h2>
     <p>Let's get moving!</p>
     <ion-img class="ion-padding" src="../../../assets/images/sunset-run.png"></ion-img>
     <ion-button color="tertiary"  [routerLink]="['/start-workout']">Set Up Workout</ion-button>

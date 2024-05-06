@@ -12,6 +12,7 @@ import { AuthenticationService } from 'src/app/authentication.service';
 export class LoginPage implements OnInit {
 
   loginForm: FormGroup
+  showPassword = false;
   constructor(public formBuilder: FormBuilder, public loadingCtrl: LoadingController, public authService: AuthenticationService, public router:Router) { }
 
   ngOnInit() {
@@ -51,4 +52,8 @@ export class LoginPage implements OnInit {
     }
   }
 
+
+  toggleShowPassword() {
+    this.showPassword = !this.showPassword;
+  }
 }

@@ -2,7 +2,7 @@
 <ion-content text-center [fullscreen]="true">
   <div class="text-center margin-top">
 
-    <ion-title class="title">Welcome</ion-title>
+    <h2 class="title">Welcome</h2>
     <p class="subtitle">Sign in to access your account</p>
   
     <form [formGroup]="loginForm" novalidate class="ion-padding">
@@ -19,8 +19,8 @@
           </div>
           <div>
             <ion-item class="input">
-              <ion-input placeholder="Password" formControlName="password"></ion-input>
-              <ion-icon name="lock-closed-outline"></ion-icon>
+              <ion-input [type]="showPassword ? 'text' : 'password'" placeholder="Password" formControlName="password"></ion-input>
+              <ion-icon (click)="toggleShowPassword()" name="{{ showPassword ? 'eye-outline' : 'eye-off-outline' }}"></ion-icon>
             </ion-item>
             <div *ngIf="this.loginForm.controls?.['password'].touched && this.loginForm.controls?.['password'].invalid">
               <ion-text *ngIf="errorControl['password'].errors?.['required']">Password is requred</ion-text>
